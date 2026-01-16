@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHIN.DEV - 首頁</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&family=Noto+Sans+TC:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Embed critical inline styles from React components to ensure fidelity */
+        .service-overview-card {
+            background: linear-gradient(145deg, #1a1a1a, #0a0a0a);
+            border: 1px solid #333;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .service-icon-circle {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .service-text {
+            color: #aaa;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            font-size: 0.95rem;
+            text-align: justify;
+        }
+
+        .tag-pill {
+            font-size: 0.8rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 4px 8px;
+            border-radius: 4px;
+            color: #ccc;
+        }
+
+        /* Hero Code Decoration */
+        .code-bg-1 {
+            position: absolute;
+            top: 10%;
+            right: 5%;
+            opacity: 0.1;
+            font-family: monospace;
+            color: var(--primary-color);
+            font-size: 0.8rem;
+            pointer-events: none;
+            z-index: 0;
+            white-space: pre;
+        }
+
+        .code-bg-2 {
+            position: absolute;
+            bottom: 15%;
+            left: 5%;
+            opacity: 0.05;
+            font-family: monospace;
+            color: #fff;
+            font-size: 0.8rem;
+            pointer-events: none;
+            z-index: 0;
+            white-space: pre;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="index.html" class="logo">
+                <i data-lucide="terminal" style="color:var(--primary-color)"></i>
+                CHIN<span>.DEV</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">首頁</a></li>
+                <li><a href="about.html">關於我</a></li>
+                <li><a href="services.html">課程與服務</a></li>
+                <li><a href="portfolio.html">作品集</a></li>
+                <li><a href="resources.html">資源庫</a></li>
+            </ul>
+            <div class="hamburger">
+                <i data-lucide="menu"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <a href="index.html">首頁</a>
+        <a href="about.html">關於我</a>
+        <a href="services.html">課程與服務</a>
+        <a href="portfolio.html">作品集</a>
+        <a href="resources.html">資源庫</a>
+    </div>
+
+    <!-- Hero -->
+    <header class="hero section">
+        <canvas id="network-bg"></canvas>
+
+        <!-- Code Decorations -->
+        <div class="code-bg-1">
+            class FDE_Efficiency_Hacker:
+            def __init__(self):
+            self.skills = ["Python", "VBA", "SNA"]
+
+            def optimize_workflow(self, task):
+            return automate(task)
+        </div>
+        <div class="code-bg-2">
+            SELECT * FROM historical_data
+            WHERE league IN ('CPBL', 'NBA', 'MLB')
+            ORDER BY date DESC;
+            // SNA Analysis...
+        </div>
+
+        <div class="container hero-content">
+            <div class="hero-text">
+                <span class="eyebrow">數位轉型實踐 X 巨量數據探勘 X 政府實務經驗</span>
+                <h1 class="hero-title">主動駕馭工作，<br>打造極致效率，<br>實現數據加值</h1>
+
+                <h3
+                    style="font-size: clamp(1rem, 2.5vw, 1.5rem); line-height: 1.4; margin-bottom: 1rem; color: var(--primary-color); font-weight: 500;">
+                    運用 FDE 思維與數據技術，為組織提升效率、加值數據、強化傳播。
+                </h3>
+
+                <p class="hero-desc" style="white-space: pre-line; max-width: 600px;">
+                    我是金湯匙，一位在公部門實踐 FDE (前線部署工程師) 概念的數位轉型實踐者，兼具巨量數據探勘能力與深厚傳播理論底蘊的跨領域專家。
+
+                    我不只是解決眼前的行政痛點，更運用 Python、VBA、JavaScript
+                    與瀏覽器外掛開發，將繁瑣流程轉化為自動化系統。從客製化工具打造到輿論戰情室建構，我協助組織提升工作效率、創造數據加值，並強化傳播影響力。
+                </p>
+
+                <!-- Value Props Grid -->
+                <div class="hero-value-props">
+                    <div>
+                        <h3>極致效率</h3>
+                        <p>導入客製化工具與瀏覽器外掛，簡化繁瑣流程。</p>
+                    </div>
+                    <div>
+                        <h3>數據洞察</h3>
+                        <p>巨量數據探勘與語意分析，輔助精準決策。</p>
+                    </div>
+                    <div>
+                        <h3>傳播影響</h3>
+                        <p>數位出版與互動內容，擴大傳播影響力。</p>
+                    </div>
+                </div>
+
+                <div class="hero-cta" style="margin-top: 2rem;">
+                    <a href="portfolio.html" class="btn">瀏覽作品</a>
+                    <a href="about.html" class="btn btn-outline">關於我</a>
+                </div>
+            </div>
+
+            <div class="hero-image-area">
+                <div class="profile-img-container">
+                    <img src="photos/profile.jpg" alt="Chin Profile">
+                </div>
+                <!-- Static Badges -->
+                <div class="static-badges">
+                    <div>效率駭客</div>
+                    <div>巨量數據分析師</div>
+                    <div>政府公關專家</div>
+                    <div>政府採購</div>
+                    <div>數位出版</div>
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- Services Overview (Matches Home.jsx exactly) -->
+    <section class="section container">
+        <div class="grid-2">
+            <!-- 專題講座 Card -->
+            <div class="service-overview-card">
+                <div class="service-icon-circle" style="background: rgba(255, 0, 85, 0.1); color: #ff0055;">
+                    <i data-lucide="calendar" size="32"></i>
+                </div>
+                <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #fff;">專題講座</h3>
+                <p class="service-text">
+                    高度模組化設計的 FDE 實戰課程，或傳播專業、數據探勘等專題課程。內容跨足效率辦公實用工具、AI
+                    自動化開發、巨量數據分析、公關、政治、傳播、政府實務與學術專案管理等。您可依據組織或個人目標，自由排列組合上述專業領域，直接選擇既有模組，或由我為您量身打造獨一無二的客製化講座方案。
+                </p>
+                <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 2rem;">
+                    <span class="tag-pill">效率工具實戰</span>
+                    <span class="tag-pill">AI 自動化與行政優化</span>
+                    <span class="tag-pill">政府採購與標案管理</span>
+                    <span class="tag-pill">輿情分析與危機處理</span>
+                    <span class="tag-pill">資料視覺化與簡報術</span>
+                    <span class="tag-pill">網站建置與數位出版</span>
+                </div>
+                <a href="services.html" class="btn btn-outline"
+                    style="width: 100%; display: flex; justify-content: center;">課程模組</a>
+            </div>
+
+            <!-- 客製化開發 Card -->
+            <div class="service-overview-card">
+                <div class="service-icon-circle"
+                    style="background: rgba(0, 243, 255, 0.1); color: var(--primary-color);">
+                    <i data-lucide="star" size="32"></i>
+                </div>
+                <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #fff;">客製化開發與顧問</h3>
+                <p class="service-text">
+                    <strong style="color: #fff">辦公室/個人自動化工具訂製：</strong>針對痛點量身打造的技術解方。運用 AI, Python, Excel VBA
+                    與瀏覽器外掛，為您開發專屬的行政自動化工具與數據系統。從繁瑣庶務的流程優化，到巨量資料的爬取，提供真正能落地的數位轉型方案、從『診斷、開發到導入』的一站式服務，賦能核心競爭力。
+                </p>
+                <a href="portfolio.html" class="btn btn-outline"
+                    style="width: 100%; display: flex; justify-content: center;">開發案例</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Work -->
+    <section class="section container">
+        <div class="section-header"
+            style="display: flex; justify-content: space-between; align-items: end; margin-bottom: 3rem;">
+            <div>
+                <h2 class="section-title" style="margin-bottom: 0.5rem;">精選作品</h2>
+                <p class="section-subtitle" style="color: #666;">融合數據分析、自動化工具與傳播美學的實戰成果。</p>
+            </div>
+            <a href="portfolio.html" class="btn btn-outline">查看全部 <i data-lucide="arrow-right"></i></a>
+        </div>
+
+        <div class="grid-3">
+            <!-- Project 1 -->
+            <div class="card project-card">
+                <div class="project-img-container" style="height: 200px; overflow: hidden; border-radius: 8px 8px 0 0;">
+                    <img src="photos/minerva.jpg" alt="Minerva" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="project-tags">
+                    <span>Github</span>
+                    <span>戰術排陣</span>
+                </div>
+                <h3>Minerva 專業級棒球管理系統</h3>
+                <p>FDE 工具代表作。具備戰術排陣與自動輪替邏輯的專業球隊管理系統。</p>
+                <div class="card-footer" style="background: transparent; border-top: 1px solid rgba(0,0,0,0.05);">
+                    <a href="#" class="link-icon"><i data-lucide="github"></i> GitHub</a>
+                </div>
+            </div>
+
+            <!-- Project 2: NBA Analysis -->
+            <div class="card project-card">
+                <div class="project-img-container" style="height: 200px; overflow: hidden; border-radius: 8px 8px 0 0;">
+                    <img src="photos/nba-network.jpg" alt="NBA Network Analysis"
+                        style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="project-tags">
+                    <span>Python</span>
+                    <span>SNA</span>
+                </div>
+                <h3>NBA 傳球網絡數據分析</h3>
+                <p>數據代表作。運用社會網絡分析 (SNA) 技術，視覺化呈現 NBA 球隊傳球網絡與攻勢流動。</p>
+                <div class="card-footer" style="background: transparent; border-top: 1px solid rgba(0,0,0,0.05);">
+                    <a href="#" class="link-icon primary"><i data-lucide="external-link"></i> Demo</a>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="card project-card">
+                <div class="project-img-container" style="height: 200px; overflow: hidden; border-radius: 8px 8px 0 0;">
+                    <img src="photos/news-system.jpg" alt="News System"
+                        style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="project-tags">
+                    <span>AiStudio</span>
+                    <span>效率優化</span>
+                </div>
+                <h3>新聞工作效率整合系統</h3>
+                <p>效率代表作。專為簡化每日新聞監測與報表製作流程而設計的自動化系統。</p>
+                <div class="card-footer" style="background: transparent; border-top: 1px solid rgba(0,0,0,0.05);">
+                    <a href="#" class="link-icon primary"><i data-lucide="external-link"></i> Demo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Props -->
+    <section class="section container center-text">
+        <h2 class="section-title" style="justify-content: center;">核心價值</h2>
+        <div class="grid-3">
+            <div class="card value-card" style="text-align: center; padding: 3rem 2rem;">
+                <div class="icon-circle" style="background: rgba(0, 243, 255, 0.1); color: var(--primary-color);">
+                    <i data-lucide="zap"></i>
+                </div>
+                <h3 style="margin-bottom: 1rem;">極致效率</h3>
+                <p style="color: #aaa;">導入客製化工具與瀏覽器外掛，簡化繁瑣流程。</p>
+            </div>
+            <div class="card value-card" style="text-align: center; padding: 3rem 2rem;">
+                <div class="icon-circle" style="background: rgba(0, 243, 255, 0.1); color: var(--primary-color);">
+                    <i data-lucide="database"></i>
+                </div>
+                <h3 style="margin-bottom: 1rem;">數據洞察</h3>
+                <p style="color: #aaa;">巨量數據探勘與語意分析，輔助精準決策。</p>
+            </div>
+            <div class="card value-card" style="text-align: center; padding: 3rem 2rem;">
+                <div class="icon-circle" style="background: rgba(0, 243, 255, 0.1); color: var(--primary-color);">
+                    <i data-lucide="share-2"></i>
+                </div>
+                <h3 style="margin-bottom: 1rem;">傳播影響</h3>
+                <p style="color: #aaa;">數位出版與互動內容，擴大傳播影響力。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-col">
+                <h3>Contact</h3>
+                <p>Ready to automate your workflow?</p>
+                <p>0955252486</p>
+                <a href="mailto:one39314320@gmail.com">one39314320@gmail.com</a>
+            </div>
+            <div class="footer-col">
+                <h3>Social</h3>
+                <a href="https://github.com">GitHub</a>
+                <a href="https://linkedin.com">LinkedIn</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Golden Spoon. Powered by FDE Mindset.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>

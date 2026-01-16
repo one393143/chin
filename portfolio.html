@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作品集 - CHIN.DEV</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="index.html" class="logo">
+                <i data-lucide="terminal" style="color:var(--primary-color)"></i>
+                CHIN<span>.DEV</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="about.html">關於我</a></li>
+                <li><a href="services.html">課程與服務</a></li>
+                <li><a href="portfolio.html" class="active">作品集</a></li>
+                <li><a href="resources.html">資源庫</a></li>
+            </ul>
+            <div class="hamburger"><i data-lucide="menu"></i></div>
+        </div>
+    </nav>
+    <div class="mobile-menu">
+        <a href="index.html">首頁</a>
+        <a href="about.html">關於我</a>
+        <a href="services.html">課程與服務</a>
+        <a href="portfolio.html">作品集</a>
+        <a href="resources.html">資源庫</a>
+    </div>
+
+    <section class="section container top-margin">
+        <span class="eyebrow">精選作品</span>
+        <h1 class="section-title">專案作品集</h1>
+
+        <div class="filter-bar">
+            <button class="filter-btn active" onclick="filterPortfolio('All')">All</button>
+            <button class="filter-btn" onclick="filterPortfolio('Custom Tools & Systems')">Custom Tools & Systems</button>
+            <button class="filter-btn" onclick="filterPortfolio('Big Data & Semantic Analysis')">Big Data</button>
+            <button class="filter-btn" onclick="filterPortfolio('Digital Publishing & Interactive')">Digital Publishing</button>
+            <button class="filter-btn" onclick="filterPortfolio('Government Projects')">Government</button>
+        </div>
+
+        <div class="portfolio-grid" id="portfolio-container">
+            <!-- Items injected by JS -->
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container"><p>&copy; 2024 Golden Spoon.</p></div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Inline data for simplicity in static file
+        const portfolioData = [
+            {
+                "id": "minerva",
+                "title": "Minerva 專業級棒球管理系統",
+                "type": "Custom Tools & Systems",
+                "tags": ["Github", "戰術排陣", "自動輪替", "數據分析"],
+                "description": "FDE 工具代表作。具備戰術排陣與自動輪替邏輯的專業球隊管理系統。"
+            },
+            {
+                "id": "opinion-war-room",
+                "title": "輿論戰情室",
+                "type": "Big Data & Semantic Analysis",
+                "tags": ["Python", "R", "情緒分析", "PCA降維"],
+                "description": "數據代表作。整合語意分析、情感分析與 PCA 主成分分析的輿情儀表板。"
+            },
+            {
+                "id": "news-efficiency",
+                "title": "新聞工作效率整合系統",
+                "type": "Custom Tools & Systems",
+                "tags": ["AiStudio", "效率優化"],
+                "description": "效率代表作。專為簡化每日新聞監測與報表製作流程而設計的自動化系統。"
+            },
+            {
+                "id": "office-auto",
+                "title": "辦公室自動化工具集",
+                "type": "Custom Tools & Systems",
+                "tags": ["VBA", "Python", "加班費計算", "自動排班"],
+                "description": "包含加班費自動計算機、人事排班演算法、電腦空間自動管理系統。"
+            },
+            {
+                "id": "browser-ext",
+                "title": "瀏覽器外掛開發",
+                "type": "Custom Tools & Systems",
+                "tags": ["JavaScript", "Chrome Extension"],
+                "description": "自製新聞閱讀優化器 (去除廣告)、公文系統輔助外掛。"
+            },
+            {
+                "id": "news-krawler",
+                "title": "台灣主流新聞爬蟲庫",
+                "type": "Big Data & Semantic Analysis",
+                "tags": ["Python", "DOM Parsing"],
+                "description": "針對台灣四大報 (UDN/LTN/ChinaTimes/CNA) 的自動化爬蟲腳本庫。"
+            },
+            {
+                "id": "ptt-sna",
+                "title": "PTT 全板面爬蟲與 SNA 分析",
+                "type": "Big Data & Semantic Analysis",
+                "tags": ["SNA", "Big Data", "網軍識別"],
+                "description": "抓取 PTT 全板面資料，進行社會網絡分析以識別意見領袖與異常帳號。"
+            },
+            {
+                "id": "historical-data",
+                "title": "職業運動歷史數據探勘",
+                "type": "Big Data & Semantic Analysis",
+                "tags": ["CPBL", "NBA", "MLB", "30年歷史數據"],
+                "description": "針對 CPBL、NBA、MLB 進行長達 30 年跨度的歷史數據爬取與深層探勘。"
+            },
+            {
+                "id": "nat-sec-web",
+                "title": "國家安全互動教材網",
+                "type": "Digital Publishing & Interactive",
+                "tags": ["Web", "Interactive"],
+                "description": "將生硬的國家安全議題轉化為可互動的網頁教材。"
+            },
+            {
+                "id": "partymoney",
+                "title": "PartyMoney 分帳系統",
+                "type": "Digital Publishing & Interactive",
+                "tags": ["Web App", "Utility"],
+                "description": "解決聚餐分帳痛點的網頁應用程式。"
+            },
+            {
+                "id": "maya-ae",
+                "title": "3D 建模與特效設計",
+                "type": "Digital Publishing & Interactive",
+                "tags": ["Maya", "After Effects"],
+                "description": "Maya 3D 建模作品與 After Effects 影音特效展示。"
+            },
+            {
+                "id": "gov-projects",
+                "title": "政府數位專案實績",
+                "type": "Government Projects",
+                "tags": ["採購案", "系統管理", "資安"],
+                "description": "參與數位化輿情系統、城市形象推動計畫等大型標案規劃與執行。"
+            }
+        ];
+
+        function filterPortfolio(filter) {
+            const container = document.getElementById('portfolio-container');
+            const btns = document.querySelectorAll('.filter-btn');
+            
+            // Update buttons
+            btns.forEach(btn => {
+                if(btn.textContent.includes(filter) || (filter === 'All' && btn.textContent === 'All')) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            // Filter Data
+            const items = filter === 'All' ? portfolioData : portfolioData.filter(i => i.type.includes(filter));
+            
+            // Render
+            container.innerHTML = items.map(item => `
+                <div class="glass-card fade-in">
+                    <div class="tags-row">
+                        ${item.tags.map(t => `<span class="tag-small">${t}</span>`).join('')}
+                    </div>
+                    <h3>${item.title}</h3>
+                    <div class="project-type">${item.type}</div>
+                    <p>${item.description}</p>
+                </div>
+            `).join('');
+        }
+
+        // Init
+        filterPortfolio('All');
+        lucide.createIcons();
+    </script>
+</body>
+</html>
