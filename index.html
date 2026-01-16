@@ -12,11 +12,21 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         /* Embed critical inline styles from React components to ensure fidelity */
+        /* Embed critical inline styles from React components to ensure fidelity */
         .service-overview-card {
-            background: linear-gradient(145deg, #1a1a1a, #0a0a0a);
-            border: 1px solid #333;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.02);
             text-align: center;
             padding: 3rem 2rem;
+            border-radius: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-overview-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
         }
 
         .service-icon-circle {
@@ -30,19 +40,23 @@
         }
 
         .service-text {
-            color: #aaa;
+            color: #555;
             margin-bottom: 1.5rem;
-            line-height: 1.6;
+            line-height: 1.7;
             font-size: 0.95rem;
             text-align: justify;
         }
 
         .tag-pill {
             font-size: 0.8rem;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 4px 8px;
-            border-radius: 4px;
-            color: #ccc;
+            background: rgba(0, 112, 243, 0.05);
+            /* Very light blue bg */
+            border: 1px solid rgba(0, 112, 243, 0.1);
+            padding: 4px 10px;
+            border-radius: 20px;
+            color: var(--primary-color);
+            /* Blue text */
+            font-weight: 500;
         }
 
         /* Hero Code Decoration */
@@ -172,7 +186,7 @@
                 <div class="static-badges">
                     <div>效率駭客</div>
                     <div>巨量數據分析師</div>
-                    <div>政府公關專家</div>
+                    <div>政府公關</div>
                     <div>政府採購</div>
                     <div>數位出版</div>
                 </div>
@@ -189,7 +203,8 @@
                 <div class="service-icon-circle" style="background: rgba(255, 0, 85, 0.1); color: #ff0055;">
                     <i data-lucide="calendar" size="32"></i>
                 </div>
-                <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #fff;">專題講座</h3>
+                <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-color); font-weight: 700;">專題講座
+                </h3>
                 <p class="service-text">
                     高度模組化設計的 FDE 實戰課程，或傳播專業、數據探勘等專題課程。內容跨足效率辦公實用工具、AI
                     自動化開發、巨量數據分析、公關、政治、傳播、政府實務與學術專案管理等。您可依據組織或個人目標，自由排列組合上述專業領域，直接選擇既有模組，或由我為您量身打造獨一無二的客製化講座方案。
@@ -212,9 +227,11 @@
                     style="background: rgba(0, 243, 255, 0.1); color: var(--primary-color);">
                     <i data-lucide="star" size="32"></i>
                 </div>
-                <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #fff;">客製化開發與顧問</h3>
+                <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-color); font-weight: 700;">客製化開發與顧問
+                </h3>
                 <p class="service-text">
-                    <strong style="color: #fff">辦公室/個人自動化工具訂製：</strong>針對痛點量身打造的技術解方。運用 AI, Python, Excel VBA
+                    <strong style="color: var(--primary-color);">辦公室/個人自動化工具訂製：</strong>針對痛點量身打造的技術解方。運用 AI, Python,
+                    Excel VBA
                     與瀏覽器外掛，為您開發專屬的行政自動化工具與數據系統。從繁瑣庶務的流程優化，到巨量資料的爬取，提供真正能落地的數位轉型方案、從『診斷、開發到導入』的一站式服務，賦能核心競爭力。
                 </p>
                 <a href="portfolio.html" class="btn btn-outline"
