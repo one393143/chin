@@ -392,6 +392,13 @@ canvas#network-bg {
   margin-top: 30px;
 }
 
+.cta-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
 /* Grid Systems */
 .grid-2 {
   display: grid;
@@ -942,6 +949,23 @@ canvas#network-bg {
     padding-right: 24px !important;
     width: 100%;
     box-sizing: border-box;
+  }
+
+  .cta-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    /* Ensure wrapping on small screens */
+    width: 100%;
+  }
+
+  .cta-wrapper .btn,
+  .cta-wrapper .btn-outline {
+    margin: 0 !important;
+    /* Override inline margins */
+    width: 100%;
+    /* Full width on mobile */
   }
 }
 
