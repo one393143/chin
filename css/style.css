@@ -244,8 +244,8 @@ ul {
   justify-content: flex-start;
   /* Changed from space-between to keep items closer */
   flex-wrap: wrap;
-  gap: 4rem;
-  /* Increased gap for better spacing when aligned left */
+  gap: 3rem;
+  /* Adjusted gap for balanced spacing */
 }
 
 .footer-col h3 {
@@ -802,6 +802,8 @@ canvas#network-bg {
   .footer-content {
     flex-direction: column;
     text-align: center;
+    gap: 1.5rem;
+    /* Reduce gap for mobile vertical stacking */
   }
 }
 
