@@ -125,7 +125,8 @@ ul {
   left: 0;
   width: 100%;
   height: var(--nav-height);
-  z-index: 1000;
+  z-index: 10000;
+  /* Increased z-index */
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
@@ -196,6 +197,8 @@ ul {
   border: none;
   color: var(--text-color);
   cursor: pointer;
+  z-index: 10001;
+  /* Ensure hamburger is above navbar */
 }
 
 .mobile-menu {
@@ -927,8 +930,10 @@ canvas#network-bg {
 
   /* Ensure container has padding on mobile */
   .container {
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+    width: auto;
+    /* Prevent overflow */
   }
 }
 

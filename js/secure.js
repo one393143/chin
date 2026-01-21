@@ -1,16 +1,13 @@
-(function() {
-    // Disable right-click
-    document.addEventListener('contextmenu', function(e) {
+(function () {
+    // Disable right-click (Optional: keep or remove based on preference, keeping for now as requested for "not easily copy")
+    document.addEventListener('contextmenu', function (e) {
         e.preventDefault();
     });
 
-    // Disable text selection
-    document.onselectstart = function() {
-        return false;
-    };
+    // Allow text selection (Removed onselectstart block)
 
     // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
-    document.onkeydown = function(e) {
+    document.onkeydown = function (e) {
         if (
             e.keyCode === 123 || // F12
             (e.ctrlKey && e.shiftKey && e.keyCode === 73) || // Ctrl+Shift+I
