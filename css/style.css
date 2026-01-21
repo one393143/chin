@@ -203,7 +203,7 @@ ul {
   top: var(--nav-height);
   left: 0;
   width: 100%;
-  background: rgba(255, 255, 255, 0.98);
+  background: #ffffff;
   backdrop-filter: blur(10px);
   flex-direction: column;
   display: none;
@@ -214,6 +214,7 @@ ul {
   max-height: calc(100vh - var(--nav-height));
   overflow-y: auto;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  z-index: 9999;
 }
 
 .mobile-menu.active {
@@ -922,6 +923,12 @@ canvas#network-bg {
   .filter-btn {
     padding: 8px 16px;
     font-size: 0.85rem;
+  }
+
+  /* Ensure container has padding on mobile */
+  .container {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
   }
 }
 
