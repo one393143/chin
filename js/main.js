@@ -29,29 +29,38 @@ document.addEventListener('DOMContentLoaded', () => {
         const ctx = canvas.getContext('2d');
         let width, height;
 
+        // Debounce resize to prevent excessive recalculations
+        let resizeTimeout;
+
         function resize() {
-            width = canvas.width = window.innerWidth;
-            height = canvas.height = window.innerHeight;
-            // Adjust to hero section height if not fixed
-            const hero = document.querySelector('.hero');
-            if (hero) {
-                // But canvas is absolute in hero, so 100% of hero is fine if hero has defined size.
-                // However, hero size changes with window width.
+            // Use clientHeight/Width to get actual display size, avoiding distortion
+            const parent = canvas.parentElement;
+            if (parent) {
+                width = canvas.width = parent.clientWidth;
+                height = canvas.height = parent.clientHeight;
+            } else {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
             }
         }
 
-        window.addEventListener('resize', resize);
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(resize, 100);
+        });
         resize();
 
         const points = [];
-        const count = 70; // Increased density
+        // Adjust count based on screen size (less points on mobile)
+        const isMobile = window.innerWidth < 768;
+        const count = isMobile ? 35 : 70;
 
         for (let i = 0; i < count; i++) {
             points.push({
                 x: Math.random() * width,
                 y: Math.random() * height,
-                vx: (Math.random() - 0.5) * 0.5,
-                vy: (Math.random() - 0.5) * 0.5
+                vx: (Math.random() - 0.5) * (isMobile ? 0.3 : 0.5), // Slower on mobile
+                vy: (Math.random() - 0.5) * (isMobile ? 0.3 : 0.5)
             });
         }
 
@@ -61,14 +70,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Draw connections
             ctx.beginPath();
-            ctx.strokeStyle = 'rgba(0, 112, 243, 0.25)'; // Increased opacity
-            ctx.lineWidth = 1.5; // Thicker lines
-            for (let i = 0; i < count; i++) {
-                for (let j = i + 1; j < count; j++) {
+
+            // Thinner lines on mobile
+            const lineWidth = window.innerWidth < 768 ? 0.5 : 1.5;
+            ctx.strokeStyle = `rgba(0, 112, 243, ${window.innerWidth < 768 ? 0.15 : 0.25})`;
+            ctx.lineWidth = lineWidth;
+
+            const connectionDistance = window.innerWidth < 768 ? 100 : 180; // Shorter distance on mobile
+
+            for (let i = 0; i < points.length; i++) {
+                for (let j = i + 1; j < points.length; j++) {
                     const dx = points[i].x - points[j].x;
                     const dy = points[i].y - points[j].y;
                     const dist = Math.sqrt(dx * dx + dy * dy);
-                    if (dist < 180) { // Increased connection distance
+
+                    if (dist < connectionDistance) {
                         ctx.moveTo(points[i].x, points[i].y);
                         ctx.lineTo(points[j].x, points[j].y);
                     }
@@ -78,15 +94,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Draw points
             ctx.fillStyle = '#0070f3';
-            for (let i = 0; i < count; i++) {
+            const radius = window.innerWidth < 768 ? 1.5 : 2;
+
+            for (let i = 0; i < points.length; i++) {
                 points[i].x += points[i].vx;
                 points[i].y += points[i].vy;
 
+                // Bounce off edges properly
                 if (points[i].x < 0 || points[i].x > width) points[i].vx *= -1;
                 if (points[i].y < 0 || points[i].y > height) points[i].vy *= -1;
 
                 ctx.beginPath();
-                ctx.arc(points[i].x, points[i].y, 2, 0, Math.PI * 2);
+                ctx.arc(points[i].x, points[i].y, radius, 0, Math.PI * 2);
                 ctx.fill();
             }
 
