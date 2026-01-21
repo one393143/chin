@@ -241,9 +241,11 @@ ul {
 
 .footer-content {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  /* Changed from space-between to keep items closer */
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 4rem;
+  /* Increased gap for better spacing when aligned left */
 }
 
 .footer-col h3 {
