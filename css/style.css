@@ -816,3 +816,140 @@ canvas#network-bg {
     width: 100%;
   }
 }
+
+/* =========================================
+   6. PORTFOLIO PAGE STYLES
+   ========================================= */
+
+/* Portfolio Filter Buttons */
+.filter-bar {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 2rem 0;
+}
+
+.filter-btn {
+  padding: 10px 20px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.filter-btn.active {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+/* Portfolio Grid */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* Tags Row - Used in Portfolio Cards */
+.tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Tag Small - Portfolio Card Tags with Color Backgrounds */
+.tag-small {
+  font-size: 0.75rem;
+  background: rgba(0, 112, 243, 0.1);
+  border: 1px solid rgba(0, 112, 243, 0.3);
+  color: var(--primary-color);
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.tag-small:hover {
+  background: rgba(0, 112, 243, 0.2);
+  transform: translateY(-1px);
+}
+
+/* Project Type Label */
+.project-type {
+  font-size: 0.8rem;
+  color: #888;
+  margin: 0.5rem 0;
+  font-weight: 500;
+}
+
+/* Fade In Animation for Portfolio Cards */
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile Responsive for Portfolio */
+@media (max-width: 768px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .filter-bar {
+    gap: 0.5rem;
+  }
+
+  .filter-btn {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+}
+
+/* =========================================
+   7. SERVICES PAGE STYLES
+   ========================================= */
+
+/* Works Tags - Service Module Tags with Color Backgrounds */
+.works-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.works-tags span {
+  font-size: 0.85rem;
+  background: rgba(0, 112, 243, 0.1);
+  border: 1px solid rgba(0, 112, 243, 0.3);
+  color: var(--primary-color);
+  padding: 6px 14px;
+  border-radius: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.works-tags span:hover {
+  background: rgba(0, 112, 243, 0.2);
+  transform: translateY(-1px);
+}
