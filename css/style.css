@@ -338,6 +338,10 @@ canvas#network-bg {
 .hero-cta {
   display: flex;
   gap: 1rem;
+  flex-wrap: wrap;
+  /* Allow buttons to wrap on mobile */
+  justify-content: center;
+  /* Center buttons when wrapped or on small screens if desired, or keep default */
 }
 
 /* Hero Value Props */
